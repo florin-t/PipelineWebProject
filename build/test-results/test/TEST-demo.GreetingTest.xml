@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="demo.GreetingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-07-27T11:06:44" hostname="Florins-MacBook-Pro.local" time="0.001">
-  <properties/>
-  <testcase name="getId" classname="demo.GreetingTest" time="0.001"/>
-  <testcase name="getContent" classname="demo.GreetingTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
