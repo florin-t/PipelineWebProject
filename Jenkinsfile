@@ -23,6 +23,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh './gradlew test'
+                sh 'make check || true'
+                junit 'build/test-results/test/*.xml'
             }
         }
         stage('Sanity check') {
