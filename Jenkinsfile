@@ -37,6 +37,8 @@ pipeline {
     post {
         always {
                 echo 'This will always run'
+                //send email here
+                mail to: "florintatu89@yahoo.com", subject: "Rrr", body: "Teh content", mimeType: "text/html"
         }
         success {
                 echo 'This will run only if successful'
