@@ -37,6 +37,8 @@ pipeline {
     post {
         always {
                 echo 'This will always run'
+                junit 'build/test-results/test/*.xml'
+
                 //send email here
                 mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
         }
