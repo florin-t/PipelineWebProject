@@ -35,8 +35,6 @@ pipeline {
                 junit 'build/test-results/test/*.xml'
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
-                def mailRecipients = "your_recipients@company.com"
-                def jobName = currentBuild.fullDisplayName
 
                 emailext body: '''${SCRIPT, template="groovy-html.template"}''',
                         mimeType: 'text/html',
