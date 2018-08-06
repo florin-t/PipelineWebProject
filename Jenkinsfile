@@ -5,7 +5,7 @@ node {
        stage('Mail') {
                    sh 'pwd'
                    sh 'tree'
-                   println ${workspace}
+                   sh " echo -e ${workspace}"
                       emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                               mimeType: 'text/html',
                               subject: "[Jenkins] ${currentBuild.fullDisplayName}",
