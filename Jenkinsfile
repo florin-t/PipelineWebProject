@@ -35,12 +35,15 @@ pipeline {
                 junit 'build/test-results/test/*.xml'
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
-                emailext body: "<div> build '$JOB_NAME', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>",
+
+
+                emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                         to: "${env.MAIL_LIST}",
                         replyTo: "${env.MAIL_LIST}",
                         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+
         }
         success {
                 echo 'This will run only if successful'
