@@ -2,6 +2,9 @@ node {
     def workspace = pwd()
     try {
        stage('Mail') {
+                   sh 'pwd'
+                   sh 'tree'
+                   sh 'echo ${workspace}'
                       emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                               mimeType: 'text/html',
                               subject: "[Jenkins] ${currentBuild.fullDisplayName}",
