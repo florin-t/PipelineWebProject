@@ -1,8 +1,4 @@
 pipeline {
-    node('pwd'){
-        sh 'pwd > workspace'
-        def workspace = readfile('workspace').trim;
-    }
 
     agent any
     stages {
@@ -34,7 +30,7 @@ pipeline {
         }
         stage('Mail') {
              steps {
-
+                workspace = env.WORKSPACE
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
