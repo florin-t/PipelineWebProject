@@ -27,19 +27,12 @@ pipeline {
                 junit 'build/test-results/test/*.xml'
             }
         }
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
-        }
     }
 
     post {
         always {
-                echo 'This will always run'
+                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
                 junit 'build/test-results/test/*.xml'
-
-                //send email here
                 mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
         }
         success {
