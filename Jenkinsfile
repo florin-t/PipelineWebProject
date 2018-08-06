@@ -30,7 +30,7 @@ pipeline {
         stage('Mail') {
              steps {
                 sh 'pwd > workspace'
-                workspace = readfile('workspace').trim;
+                def workspace = readfile('workspace').trim;
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
