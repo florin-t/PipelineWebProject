@@ -33,7 +33,18 @@ pipeline {
         always {
                 archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
                 junit 'build/test-results/test/*.xml'
-                mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
+                //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
+
+                def mailRecipients = "your_recipients@company.com"
+                def jobName = currentBuild.fullDisplayName
+
+                emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+                        mimeType: 'text/html',
+                        subject: "[Jenkins] ${jobName}",
+                        to: "${env.MAIL_LIST}",
+                        replyTo: "${env.MAIL_LIST}",
+                        recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+
         }
         success {
                 echo 'This will run only if successful'
