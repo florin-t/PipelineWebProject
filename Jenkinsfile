@@ -7,7 +7,7 @@ node {
                    sh 'tree'
                    sh " echo -e ${workspace}"
                    sh "cd ${workspace}"
-                   sh 'll'
+                   sh 'ls -alh'
                    sh 'tree'
                       emailext body: '''${FILE, path="groovy-html.template"}''',
                               mimeType: 'text/html',
