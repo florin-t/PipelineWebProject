@@ -1,7 +1,4 @@
 pipeline {
-    def workspace = pwd()
-
-
     agent any
     stages {
         stage('Sys Info') {
@@ -39,7 +36,7 @@ pipeline {
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
 
-
+                def workspace = pwd()
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
