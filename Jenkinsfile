@@ -1,4 +1,7 @@
 pipeline {
+    def workspace = pwd()
+
+
     agent any
     stages {
         stage('Sys Info') {
