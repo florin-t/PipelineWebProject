@@ -35,7 +35,7 @@ pipeline {
                 junit 'build/test-results/test/*.xml'
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
-                emailext body: '<div> build '$JOB_NAME', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>',
+                emailext body: "<div> build '$JOB_NAME', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>",
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                         to: "${env.MAIL_LIST}",
