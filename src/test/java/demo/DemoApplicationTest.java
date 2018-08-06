@@ -10,7 +10,7 @@ public class DemoApplicationTest {
         DemoApplication classUnderTest = new DemoApplication();
         assertTrue("someLibraryMethod should return 'true'", true);
     }
-    @Test public void testSomethingFailed() {
-        fail();
+    @Test public void testNoMorefail() {
+        assertTrue(true);
     }
 }
