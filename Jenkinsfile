@@ -1,4 +1,5 @@
 node {
+    deleteDir()
     def workspace = pwd()
     try {
        stage('Mail') {
