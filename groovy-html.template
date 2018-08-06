@@ -7,4 +7,4 @@
   <div>
     <% println build.properties.collect{it}.join('<br />') %>
   </div>
-</body> 
+</body>
