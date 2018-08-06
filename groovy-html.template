@@ -1,8 +1,10 @@
 <body>
-<div>Hello,</div>
-<div> build '${currentBuild.displayName}', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>
-<div>Click  <a href="$BUILD_URL/artifact/target/reports/$JOB_NAME.html">here</a> for a detailed report.</div>
-<div></div>
-<h5>With love,</h5>
-<h5>Jenkins</h5>
-</body>
+  <h3>Using "build" environment variables:</h3>
+  <p>
+    <a href="<%= build.absoluteUrl %>"><%= build.fullDisplayName %></a>
+  </p>
+  <h3>List of all available "build" environment variables:</h3>
+  <div>
+    <% println build.properties.collect{it}.join('<br />') %>
+  </div>
+</body> 
