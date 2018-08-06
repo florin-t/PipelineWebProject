@@ -2,6 +2,12 @@ node {
     deleteDir()
     def workspace = pwd()
     try {
+
+       stage("Getcode"){
+            checkout scm
+
+
+       }
        stage('Mail') {
                    sh 'pwd'
                    sh 'tree'
@@ -9,7 +15,7 @@ node {
                    sh "cd ${workspace}"
                    sh 'ls -alh'
                    sh 'tree'
-                      emailext body: '''${FILE, path="groovy-html.template"}''',
+                      emailext body: '''${SCRIPT, template="groovy-html.template"}''',
                               mimeType: 'text/html',
                               subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                               to: "${env.MAIL_LIST}",
