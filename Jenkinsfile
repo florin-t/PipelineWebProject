@@ -1,6 +1,4 @@
-node {
-    def workspace = pwd()
-
+pipeline {
     agent any
     stages {
         stage('Sys Info') {
@@ -37,7 +35,8 @@ node {
                 junit 'build/test-results/test/*.xml'
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
-
+                sh 'pwd > workspace'
+                workspace = readfile('workspace').trim;
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
