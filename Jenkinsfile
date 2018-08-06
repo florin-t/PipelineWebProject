@@ -29,8 +29,9 @@ pipeline {
             }
         }
         stage('Mail') {
+             workspace = env.WORKSPACE
+
              steps {
-                workspace = env.WORKSPACE
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
                         mimeType: 'text/html',
                         subject: "[Jenkins] ${currentBuild.fullDisplayName}",
