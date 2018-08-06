@@ -6,7 +6,7 @@ node {
                    sh 'pwd'
                    sh 'tree'
                    sh " echo -e ${workspace}"
-                      emailext body: '''${SCRIPT, template="'.${workspace}.'/groovy-html.template"}''',
+                      emailext body: '''${SCRIPT, template="'''${workspace}'''/groovy-html.template"}''',
                               mimeType: 'text/html',
                               subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                               to: "${env.MAIL_LIST}",
