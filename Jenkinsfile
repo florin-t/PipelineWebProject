@@ -27,14 +27,8 @@ pipeline {
                 junit 'build/test-results/test/*.xml'
             }
         }
-    }
-
-    post {
-        always {
-                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-                junit 'build/test-results/test/*.xml'
-                //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
-
+        stage('Mail') {
+             steps {
                 sh 'pwd > workspace'
                 workspace = readfile('workspace').trim;
                 emailext body: '''${SCRIPT, template="${workspace}/groovy-html.template"}''',
@@ -43,6 +37,18 @@ pipeline {
                         to: "${env.MAIL_LIST}",
                         replyTo: "${env.MAIL_LIST}",
                         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+            }
+        }
+
+    }
+
+    post {
+        always {
+                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+                junit 'build/test-results/test/*.xml'
+                //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
+
+
 
         }
         success {
