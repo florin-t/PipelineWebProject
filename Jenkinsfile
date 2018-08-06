@@ -36,9 +36,10 @@ pipeline {
                 //mail to: "${env.MAIL_LIST}", subject: "Rrr", body: "Teh content", mimeType: "text/html"
 
 
+
                 emailext body: '''${SCRIPT, template="groovy-html.template"}''',
                         mimeType: 'text/html',
-                        subject: "[Jenkins] ${jobName}",
+                        subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                         to: "${env.MAIL_LIST}",
                         replyTo: "${env.MAIL_LIST}",
                         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
