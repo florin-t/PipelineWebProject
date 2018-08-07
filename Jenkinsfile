@@ -25,13 +25,15 @@ node {
                    sh 'echo $GIT_URL'
                    sh 'echo $GIT_BRANCH'
                    
-                   sh 'tree'
-                      emailext body: '''${SCRIPT, template="groovy-html.template"}''',
-                              mimeType: 'text/html',
-                              subject: "[Jenkins] ${currentBuild.fullDisplayName}",
-                              to: "${env.MAIL_LIST}",
-                              replyTo: "${env.MAIL_LIST}",
-                              recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+                             def jobName = currentBuild.fullDisplayName
+                             sh "cd ${workspace}"
+                             emailext body: '''${SCRIPT, template="groovy2-html.template"}''',
+                                 mimeType: 'text/html',
+                                 subject: "[Jenkins] ${jobName}",
+                                 to: "${mailRecipients}",
+                                 replyTo: "${mailRecipients}",
+                                 recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+
               }
     } catch (err) {
         currentBuild.result = 'FAILED'
