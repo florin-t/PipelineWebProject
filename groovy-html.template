@@ -1,6 +1,6 @@
 <body>
 <div>Hello,</div>
-<div> build '${currentBuild.displayName}', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>
+<div> build '${currentBuild.fullDisplayName}', number '$BUILD_NUMBER' ended with status '$BUILD_STATUS'.</div>
 <div>Click  <a href="$BUILD_URL/artifact/target/reports/$JOB_NAME.html">here</a> for a detailed report.</div>
 <div></div>
 <h5>With love,</h5>
