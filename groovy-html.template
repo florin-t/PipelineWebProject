@@ -6,16 +6,16 @@
 
 <div>Env Vars</div>
 <br/>
-<div>$BUILD_URL </div>
-<div>$NODE_NAME </div>
-<div>$JOB_NAME </div>
-<div>$BUILD_TAG </div>
-<div>$BEXECUTOR_NUMBER </div>
-<div>$JAVA_HOME </div>
-<div>$WORKSPACE </div>
-<div>$GIT_COMMIT </div>
-<div>$GIT_URL </div>
-<div>$GIT_BRANCH </div>
+<div>'$BUILD_URL '</div>
+<div>'$NODE_NAME' </div>
+<div>'$JOB_NAME' </div>
+<div>'$BUILD_TAG' </div>
+<div>'$EXECUTOR_NUMBER' </div>
+<div>'$JAVA_HOME' </div>
+<div>'$WORKSPACE' </div>
+<div>'$GIT_COMMIT' </div>
+<div>'$GIT_URL' </div>
+<div>'$GIT_BRANCH' </div>
 
 <h5>With love,</h5>
 <h5>Jenkins</h5>
