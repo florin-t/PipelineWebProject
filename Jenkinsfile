@@ -26,7 +26,7 @@ node {
                    sh 'echo $GIT_BRANCH'
                    
                    sh 'tree'
-                      emailext body: '${FILE, path="groovy-html.template"}',
+                      emailext body: '${SCRIPT, path="groovy-html.template"}',
                               mimeType: 'text/html',
                               subject: "[Jenkins] ${currentBuild.fullDisplayName}",
                               to: "${env.MAIL_LIST}",
