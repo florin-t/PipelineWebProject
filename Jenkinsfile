@@ -30,8 +30,8 @@ node {
                              emailext body: '''${SCRIPT, template="groovy2-html.template"}''',
                                  mimeType: 'text/html',
                                  subject: "[Jenkins] ${jobName}",
-                                 to: "${mailRecipients}",
-                                 replyTo: "${mailRecipients}",
+                                 to: "${env.MAIL_LIST}",
+                                 replyTo: "${env.MAIL_LIST}",
                                  recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 
               }
