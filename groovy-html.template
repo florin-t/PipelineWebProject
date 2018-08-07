@@ -17,6 +17,25 @@
 <div>'$GIT_URL' </div>
 <div>'$GIT_BRANCH' </div>
 
+
+
+<div>Env vars2: </div>
+<br/>
+    <tr>
+      <td>Project:</td>
+      <td>${project.name}</td>
+    </tr>
+    <tr>
+      <td>Date:</td>
+      <td>${it.timestampString}</td>
+    </tr>
+    <tr>
+      <td>Duration:</td>
+      <td>${build.durationString}</td>
+    </tr>
+
+
+
 <h5>With love,</h5>
 <h5>Jenkins</h5>
 </body>
