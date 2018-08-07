@@ -14,6 +14,17 @@ node {
                    sh " echo -e ${workspace}"
                    sh "cd ${workspace}"
                    sh 'ls -alh'
+                   sh 'echo $BUILD_URL'
+                   sh 'echo $NODE_NAME'
+                   sh 'echo $JOB_NAME'
+                   sh 'echo $BUILD_TAG'
+                   sh 'echo $EXECUTOR_NUMBER'
+                   sh 'echo $JAVA_HOME'
+                   sh 'echo $WORKSPACE'
+                   sh 'echo $GIT_COMMIT'
+                   sh 'echo $GIT_URL'
+                   sh 'echo $GIT_BRANCH'
+                   
                    sh 'tree'
                       emailext body: '${FILE, path="groovy-html.template"}',
                               mimeType: 'text/html',
